@@ -26,7 +26,7 @@ public class Obra {
 		return this.genero;
 	}
 	
-	public int setMinutosDuracion() {
+	public int getMinutos() {
 		return this.minutosDuracion;
 	}
 	
@@ -38,7 +38,7 @@ public class Obra {
 		this.genero = gen;
 	}
 	
-	public void setDuracion(int dur) {
+	public void setMinutos(int dur) {
 		this.minutosDuracion = dur;
 	}
 }

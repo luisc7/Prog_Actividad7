@@ -14,8 +14,11 @@ public class Principal {
 			opc = mostrarMenu();
 			switch (opc) {
 				case '1':
+					teatro.verProgramacion();
 				case '2':
+					teatro.verLocalidades();
 				case '3':
+					teatro.verLocalidadesOcupadas();
 				case '4':
 				case '5':
 				case '6':
@@ -41,5 +44,7 @@ public class Principal {
 		System.out.println ("8. Terminar programa");
 		System.out.println ("------------------------------");
 		System.out.println ("¿Qué opción deseas?");
+		opcion = lector.nextLine();
+		return opcion.charAt(0); // Devuelvo el primer caracter tecleado.
 	}
 }

@@ -19,7 +19,7 @@ public class Local {
 	}
 	
 	
-	// Falta perfilar el toString apra el uso final
+	// Falta perfilar el toString para el uso final
 	@Override
 	public String toString() {
 		return "";

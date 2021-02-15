@@ -22,7 +22,7 @@ public class Principal {
 				case '7':
 				case '8':
 				default:
-				}
+			}
 		} while (opc!='8');
 		lector.close();
 	}

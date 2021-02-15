@@ -14,11 +14,11 @@ public class Principal {
 			opc = mostrarMenu();
 			switch (opc) {
 				case '1':
-					teatro.verProgramacion();
+					System.out.println(teatro.verProgramacion());
 				case '2':
-					teatro.verLocalidades();
+					System.out.println(teatro.verLocalidades());
 				case '3':
-					teatro.verLocalidadesOcupadas();
+					System.out.println(teatro.verLocalidadesOcupadas());
 				case '4':
 				case '5':
 				case '6':

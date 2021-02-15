@@ -9,10 +9,11 @@ public class Teatro extends Local implements Sala{
 	private final int COLUMNAS = 10;
 	
 	// Constructores
-	public Teatro(String domi, int metr, int acce, Obra ob) {
+	public Teatro(String domi, int metr, int acce, Obra ob, double pre) {
 		super(domi, metr, acce);
 		this.obra = ob;
 		this.localidades = new Espectador[FILAS][COLUMNAS];
+		this.precio = pre;
 	}
 	
 	public String verProgramacion() {

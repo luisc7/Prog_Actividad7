@@ -59,7 +59,7 @@ public class Espectador {
 		this.tlf = tel;
 	}
 		
-	public void setNombre(int eda) {
+	public void setEdad(int eda) {
 		this.edad = eda;
 	}
 	

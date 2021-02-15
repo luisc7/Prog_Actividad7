@@ -12,7 +12,13 @@ public class Teatro extends Local implements Sala{
 	public Teatro(String domi, int metr, int acce, Obra ob, double pre) {
 		super(domi, metr, acce);
 		this.obra = ob;
+		//this.localidades = new Espectador[FILAS][COLUMNAS];
 		this.localidades = new Espectador[FILAS][COLUMNAS];
+		for (int i=0; i<FILAS; i++) {
+			for (int j=0; j<COLUMNAS; j++) {
+				 localidades[i][j] = new Espectador();
+			}
+		}
 		this.precio = pre;
 	}
 	

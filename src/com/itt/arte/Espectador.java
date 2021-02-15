@@ -19,7 +19,9 @@ public class Espectador {
 	}
 	
 	public String rangoEdad() {
-		if (0 <= this.edad && this.edad < 18) {
+		if (0 <= this.edad && this.edad < 13) {
+			return "infantil";
+		} else if (this.edad >= 13 && this.edad < 18) {
 			return "menor";
 		} else if (this.edad >= 18 && this.edad < 65) {
 			return "adulto";

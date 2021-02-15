@@ -50,7 +50,7 @@ public class Teatro extends Local implements Sala{
 					 ocupados.concat(i + "." + j + " ");
 					 ocupados.concat(localidades[i][j].getNombre()+", ");
 					 ocupados.concat("telf: "+ localidades[i][j].getTlf() + ", ");
-					 ocupados.concat("Tipo: "+ localidades[i][j].getTipo());
+					 ocupados.concat("Tipo: "+ localidades[i][j].rangoEdad());
 				 }
 			}
 		}

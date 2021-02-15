@@ -46,7 +46,7 @@ public class Teatro extends Local implements Sala{
 		String ocupados = "";
 		for (int i=0; i<FILAS; i++) {
 			for (int j=0; j<COLUMNAS; j++) {
-				 if (localidades[i][j].getEdad() != (-1)) {
+				 if ((localidades[i][j].getEdad()) != (-1)) {
 					 ocupados.concat("\n");
 					 ocupados.concat(i + "." + j + " ");
 					 ocupados.concat(localidades[i][j].getNombre()+", ");

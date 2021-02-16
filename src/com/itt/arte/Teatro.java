@@ -63,7 +63,7 @@ public class Teatro extends Local implements Sala{
 			for (int j=0; j<columnass; j++) {
 				 if ((localidades[i][j].getEdad()) != (-1)) {
 					 ocupados.append("\n");
-					 ocupados.append(i + "." + j + " ");
+					 ocupados.append((i+1) + "." + (j+1) + " ");
 					 ocupados.append(localidades[i][j].getNombre()+", ");
 					 ocupados.append("telf: "+ localidades[i][j].getTlf() + ", ");
 					 ocupados.append("Tipo: "+ localidades[i][j].rangoEdad());
@@ -89,7 +89,11 @@ public class Teatro extends Local implements Sala{
 				" a " + e.getNombre() + " por " + preciodto + " Euros";
 	}
 	public String cancelarLocalidad(int fila, int butaca) {
-		return "";
+		String personaAnula = localidades[fila][butaca].getNombre();
+		localidades[fila][butaca].setNombre(null);
+		localidades[fila][butaca].setTlf(null);
+		localidades[fila][butaca].setEdad(-1);
+		return personaAnula + " ha cancelado su reserva";
 	}
 	public String consultarLocalidad(int fila, int butaca) {
 		return "";

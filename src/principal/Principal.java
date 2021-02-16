@@ -34,19 +34,12 @@ public class Principal {
 				case '4':
 					numteclado = new Scanner(System.in);
 					teclado = new Scanner(System.in);
-					
-				    int fil = 0;
-				    int col = 0;
-				    //4int eda = 0;
-				    
-				    double dto = 0;
-				    double precdto = 0;
-									    				    
+								    				    
 					System.out.println("Elija la fila en que prefiera sentarse (de 1 a " + teatro.getFilass() + ")");
-					fil = numteclado.nextInt();
+					int fil = numteclado.nextInt();
 					fil--;
 					System.out.println("Elija la butaca (de 1 a " + teatro.getColumnass() + ")");
-					col = numteclado.nextInt();
+					int col = numteclado.nextInt();
 					col--;
 					
 					if (teatro.getLocalidades(fil, col).getEdad() >= 0) {
@@ -68,6 +61,16 @@ public class Principal {
 					break;
 				
 				case '5':
+					teclado = new Scanner(System.in);
+					System.out.println("¿En qué fila está la reserva que desea anular? (de 1 a " + teatro.getFilass() + ")");
+					int fil2 = numteclado.nextInt();
+					fil2--;
+					System.out.println("¿Y qué butaca de la fila anterior es? (de 1 a " + teatro.getColumnass() + ")");
+					int col2 = numteclado.nextInt();
+					col2--;
+					System.out.println(teatro.cancelarLocalidad(fil2, col2));
+					break;
+					
 				case '6':
 				case '7':
 				case '8':

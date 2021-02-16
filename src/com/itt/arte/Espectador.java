@@ -7,8 +7,8 @@ public class Espectador {
 	private int edad;
 	
 	public Espectador () {
-		this.nombre = "";
-		this.tlf = "";
+		this.nombre = null;
+		this.tlf = null;
 		this.edad = -1;
 	}
 	

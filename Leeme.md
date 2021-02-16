@@ -1,0 +1,1 @@
+Este ejercicio se ha hecho con vistas a practicar por ejemplo la interface que tiene, la agragación o la composición; pero también para utilizarlo para practicar cosas vistas en entornos (uso de git, javadoc, JUnit, etc).

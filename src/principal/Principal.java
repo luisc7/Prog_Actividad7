@@ -3,6 +3,13 @@ package principal;
 import java.util.Scanner;
 import com.itt.arte.*;
 
+/**
+ * {@link https://github.com/luisc7/Prog_Actividad7}
+ * 
+ * @author Luis
+ *
+ */
+
 public class Principal {
 	private static Scanner lector;
 	private static Scanner numteclado;

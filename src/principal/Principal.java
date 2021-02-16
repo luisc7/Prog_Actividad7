@@ -21,12 +21,15 @@ public class Principal {
 			
 				case '1':
 					System.out.println(teatro.verProgramacion());
+					break;
 					
 				case '2':
 					System.out.println(teatro.verLocalidades());
+					break;
 				
 				case '3':
 					System.out.println(teatro.verLocalidadesOcupadas());
+					break;
 				
 				case '4':
 					numteclado = new Scanner(System.in);
@@ -34,15 +37,17 @@ public class Principal {
 					
 				    int fil = 0;
 				    int col = 0;
-				    int eda = 0;
+				    //4int eda = 0;
 				    
 				    double dto = 0;
 				    double precdto = 0;
-										
-					System.out.println("Elija la fila en que prefiera sentarse (de 0 a " + teatro.getFilass());
+									    				    
+					System.out.println("Elija la fila en que prefiera sentarse (de 1 a " + teatro.getFilass() + ")");
 					fil = numteclado.nextInt();
-					System.out.println("Elija la butaca (de 0 a " + teatro.getColumnass());
+					fil--;
+					System.out.println("Elija la butaca (de 1 a " + teatro.getColumnass() + ")");
 					col = numteclado.nextInt();
+					col--;
 					
 					if (teatro.getLocalidades(fil, col).getEdad() >= 0) {
 						System.out.println("Lo sentimos, esa butaca está ocupada.");
@@ -53,25 +58,14 @@ public class Principal {
 						System.out.println("Introduzca su telefono:");
 						String telefono = teclado.nextLine();
 						System.out.println("Ponga su edad:");
-						eda = numteclado.nextInt();
+						String edaStr = teclado.nextLine();
+						int eda = Integer.parseInt(edaStr);
+						Espectador esp = new Espectador(nombre, telefono, eda);			
+						System.out.println(teatro.venderLocalidad(fil, col, esp));
 						
-						if (0 <= eda && eda < 13) {
-							dto = 0.5;
-						} else if (eda >= 13 && eda < 18) {
-							dto = 0.2;
-						} else if (eda >= 65) {
-							dto = 0.66;
-						} else {
-							dto = 0;
-						}
-						
-						precdto = teatro.getPrecio() * (1 - dto);
-						
-						teatro.setLocalidades(fil, col, nombre, telefono, eda);
-						System.out.println("Se ha vendido la localidad "+ fil + "." + col + 
-								" a " + nombre + " por " + precdto + " Euros");
 					
 					}
+					break;
 				
 				case '5':
 				case '6':

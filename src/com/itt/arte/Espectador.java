@@ -63,5 +63,11 @@ public class Espectador {
 		this.edad = eda;
 	}
 	
+	public void setEspectador(Espectador esp) {
+		this.nombre = esp.getNombre();
+		this.tlf = esp.getTlf();
+		this.edad = esp.getEdad();
+	}
+	
 
 }

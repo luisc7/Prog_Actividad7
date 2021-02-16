@@ -8,6 +8,8 @@ public class Teatro extends Local implements Sala{
 	private int filass;
 	private int columnass;
 	
+	private static double recaudacion = 0;
+	
 		
 	// Constructores
 	public Teatro(String domi, int metr, int acce, Obra ob, double pre) {
@@ -44,7 +46,7 @@ public class Teatro extends Local implements Sala{
 		for (int i=0; i<filass; i++) {
 			lista.append("\n");
 			for (int j=0; j<columnass; j++) {
-				lista.append(i + "." + j + " ");
+				lista.append((i+1) + "." + (j+1) + " ");
 				if (localidades[i][j].getEdad() == -1) {
 					lista.append("Libre\t");
 				} else {
@@ -71,9 +73,20 @@ public class Teatro extends Local implements Sala{
 		return ocupados.toString();
 	}
 	public String venderLocalidad(int fila, int butaca, Espectador e) {
-	    
-		
-		return "";
+	    this.localidades[fila][butaca].setEspectador(e);
+	    double preciodto = 0;
+	    if (e.rangoEdad() == "infantil") {
+			preciodto = this.precio * (1 - 0.5);
+		} else if (e.rangoEdad() == "menor") {
+			preciodto = this.precio * (1 - 0.2);
+		} else if ((e.rangoEdad() == "adulto")) {
+			preciodto = this.precio * (1 - 0);
+		} else if (e.rangoEdad() == "jubilado") {
+			preciodto = this.precio * (1 - 0.66);
+		} 
+	    recaudacion += preciodto;
+	    return "Se ha vendido la localidad "+ fila + "." + butaca + 
+				" a " + e.getNombre() + " por " + preciodto + " Euros";
 	}
 	public String cancelarLocalidad(int fila, int butaca) {
 		return "";
@@ -104,6 +117,24 @@ public class Teatro extends Local implements Sala{
 	
 	public void setLocalidades(int f, int c, String nom, String tel, int edd){
 		localidades[f][c] = new Espectador(nom, tel, edd);
+	}
+	
+	public void setPrecio(Espectador e) {
+		double dto = 0;
+		
+		int ed = e.getEdad();
+
+		if (0 <= ed && ed < 13) {
+			dto = 0.5;
+		} else if (ed >= 13 && ed < 18) {
+			dto = 0.2;
+		} else if (ed >= 65) {
+			dto = 0.66;
+		} else {
+			dto = 0;
+		}
+		
+		
 	}
 	
 

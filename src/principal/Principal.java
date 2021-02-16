@@ -33,7 +33,12 @@ public class Principal {
 					break;
 				
 				case '3':
-					System.out.println(teatro.verLocalidadesOcupadas());
+					String ocupadas = teatro.verLocalidadesOcupadas();
+					if (ocupadas == "") {
+						System.out.println("Todas las butacas están libres.");
+					} else {
+						System.out.println(ocupadas);
+					}
 					break;
 				
 				case '4':
@@ -115,7 +120,7 @@ public class Principal {
 	
 	public static char mostrarMenu() {
 		String opcion;
-		System.out.println ("TEATRO LA BOMBILLA DE DON BLAS");
+		System.out.println ("\nTEATRO LA BOMBILLA DE DON BLAS");
 		System.out.println ("------------------------------");
 		System.out.println ("1. Ver la programación actual");
 		System.out.println ("2. Mostrar todas las localidades");

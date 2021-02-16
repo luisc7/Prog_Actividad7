@@ -33,9 +33,9 @@ public class Teatro extends Local implements Sala{
 	
 	public String verProgramacion() {
 		String actual = "Hoy representamos " + obra.getTitulo() +
-						". Género: " + obra.getGenero() +
-						". Duración: "+ obra.getMinutos() + " minutos. " +
-						"El teatro se ubica en " + super.getDomicilio() + " y tiene " +
+						".\nGénero: " + obra.getGenero() +
+						".\nDuración: "+ obra.getMinutos() + " minutos. " +
+						"\nEl teatro se ubica en " + super.getDomicilio() + " y tiene " +
 						super.getMetros() + " metros cuadrados de superficie. Cuenta con " +
 						super.getAccesos() + " accesos.\n" +
 						"Precio: " + this.precio + " Euros.";

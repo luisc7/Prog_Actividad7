@@ -17,6 +17,8 @@ public class Principal {
 		int fil = 0;
 		int col = 0;
 		
+		
+		
 		do {
 			opc = mostrarMenu();
 			
@@ -69,7 +71,12 @@ public class Principal {
 					System.out.println("¿Y qué butaca de la fila anterior es? (de 1 a " + teatro.getColumnass() + ")");
 					col = numteclado.nextInt();
 					col--;
-					System.out.println(teatro.cancelarLocalidad(fil, col));
+					if (teatro.getLocalidades(fil, col).getEdad() == -1) {
+						System.out.println("No se ha anulado ninguna reserva: La butaca ya estaba libre.");
+						
+					} else {					
+						System.out.println(teatro.cancelarLocalidad(fil, col));
+					}
 					break;
 					
 				case '6':
@@ -83,8 +90,24 @@ public class Principal {
 					System.out.println(teatro.consultarLocalidad(fil, col));
 					break;
 				case '7':
+					// Se ha optado por ir almacenando los precios en una variable 
+					// de cada Espectador según se venden o anulan, y recalcularlo 
+					// cada vez que se consulta barriendo todo el teatro.
+					double ventaEntradas = 0;
+					for (int i=0; i<teatro.getFilass(); i++) {
+						for (int j=0; j<teatro.getColumnass(); j++) {
+							if (teatro.getLocalidades(i, j).getEdad() >= 0)
+								ventaEntradas += teatro.getLocalidades(i, j).getPreciobut() ;
+						}
+					}
+					System.out.println("La reacudación en este momento es de: " + ventaEntradas);
+					break;
 				case '8':
+					System.out.println("Hasta pronto");
+					System.exit(1);
 				default:
+					System.out.println("Opcion no válida.");
+					break;
 			}
 		} while (opc!='8');
 		lector.close();

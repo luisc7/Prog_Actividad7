@@ -8,7 +8,7 @@ public class Teatro extends Local implements Sala{
 	private int filass;
 	private int columnass;
 	
-	private static double recaudacion = 0;
+	// private static double recaudacion = 0;
 	
 		
 	// Constructores
@@ -84,15 +84,18 @@ public class Teatro extends Local implements Sala{
 		} else if (e.rangoEdad() == "jubilado") {
 			preciodto = this.precio * (1 - 0.66);
 		} 
-	    recaudacion += preciodto;
+	    // recaudacion += preciodto;
 	    return "Se ha vendido la localidad "+ fila + "." + butaca + 
 				" a " + e.getNombre() + " por " + preciodto + " Euros";
 	}
 	public String cancelarLocalidad(int fila, int butaca) {
 		String personaAnula = localidades[fila][butaca].getNombre();
+		//recaudacion -= localidades[fila][butaca].getPreciobut();
 		localidades[fila][butaca].setNombre(null);
 		localidades[fila][butaca].setTlf(null);
 		localidades[fila][butaca].setEdad(-1);
+		localidades[fila][butaca].setPreciobut(0);
+				
 		return personaAnula + " ha cancelado su reserva";
 	}
 	public String consultarLocalidad(int fila, int butaca) {
@@ -146,6 +149,7 @@ public class Teatro extends Local implements Sala{
 			dto = 0;
 		}
 		
+		e.setPreciobut(this.precio * (1 - dto));
 		
 	}
 	

@@ -70,6 +70,10 @@ public class Espectador {
 		this.edad = eda;
 	}
 	
+	public void setPreciobut(double pre) {
+		this.preciobut = pre;
+	}
+	
 	public void setEspectador(Espectador esp, double pre) {
 		this.nombre = esp.getNombre();
 		this.tlf = esp.getTlf();

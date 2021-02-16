@@ -14,6 +14,9 @@ public class Principal {
 	public static void main(String[] args) {
 		lector = new Scanner(System.in);
 		char opc;
+		int fil = 0;
+		int col = 0;
+		
 		do {
 			opc = mostrarMenu();
 			
@@ -36,10 +39,10 @@ public class Principal {
 					teclado = new Scanner(System.in);
 								    				    
 					System.out.println("Elija la fila en que prefiera sentarse (de 1 a " + teatro.getFilass() + ")");
-					int fil = numteclado.nextInt();
+					fil = numteclado.nextInt();
 					fil--;
 					System.out.println("Elija la butaca (de 1 a " + teatro.getColumnass() + ")");
-					int col = numteclado.nextInt();
+					col = numteclado.nextInt();
 					col--;
 					
 					if (teatro.getLocalidades(fil, col).getEdad() >= 0) {
@@ -53,25 +56,32 @@ public class Principal {
 						System.out.println("Ponga su edad:");
 						String edaStr = teclado.nextLine();
 						int eda = Integer.parseInt(edaStr);
-						Espectador esp = new Espectador(nombre, telefono, eda);			
+						Espectador esp = new Espectador(nombre, telefono, eda, teatro.getPrecio());			
 						System.out.println(teatro.venderLocalidad(fil, col, esp));
-						
-					
 					}
 					break;
 				
 				case '5':
 					teclado = new Scanner(System.in);
 					System.out.println("¿En qué fila está la reserva que desea anular? (de 1 a " + teatro.getFilass() + ")");
-					int fil2 = numteclado.nextInt();
-					fil2--;
+					fil = numteclado.nextInt();
+					fil--;
 					System.out.println("¿Y qué butaca de la fila anterior es? (de 1 a " + teatro.getColumnass() + ")");
-					int col2 = numteclado.nextInt();
-					col2--;
-					System.out.println(teatro.cancelarLocalidad(fil2, col2));
+					col = numteclado.nextInt();
+					col--;
+					System.out.println(teatro.cancelarLocalidad(fil, col));
 					break;
 					
 				case '6':
+					teclado = new Scanner(System.in);
+					System.out.println("¿Qué fila desea consultar? (de 1 a " + teatro.getFilass() + ")");
+					fil = numteclado.nextInt();
+					fil--;
+					System.out.println("¿Y qué butaca de la fila anterior es? (de 1 a " + teatro.getColumnass() + ")");
+					col = numteclado.nextInt();
+					col--;
+					System.out.println(teatro.consultarLocalidad(fil, col));
+					break;
 				case '7':
 				case '8':
 				default:

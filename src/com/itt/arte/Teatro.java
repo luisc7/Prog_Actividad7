@@ -73,7 +73,7 @@ public class Teatro extends Local implements Sala{
 		return ocupados.toString();
 	}
 	public String venderLocalidad(int fila, int butaca, Espectador e) {
-	    this.localidades[fila][butaca].setEspectador(e);
+	    this.localidades[fila][butaca].setEspectador(e, precio);
 	    double preciodto = 0;
 	    if (e.rangoEdad() == "infantil") {
 			preciodto = this.precio * (1 - 0.5);
@@ -96,7 +96,15 @@ public class Teatro extends Local implements Sala{
 		return personaAnula + " ha cancelado su reserva";
 	}
 	public String consultarLocalidad(int fila, int butaca) {
-		return "";
+		if (localidades[fila][butaca].getEdad() == -1) {
+			return "La localidad está libre.";
+		} else {
+			return "La localidad " + fila + "." + butaca + " está ocupada por " + 
+					localidades[fila][butaca].getNombre() + ".\nTelf: " + 
+					localidades[fila][butaca].getTlf() + "\nRango de edad: " +
+					localidades[fila][butaca].rangoEdad() + "\nPrecio: " +
+					localidades[fila][butaca].getPreciobut();
+		}
 	}
 	public double calcularRecaudacion() {
 		return 0;
@@ -120,7 +128,7 @@ public class Teatro extends Local implements Sala{
 	}
 	
 	public void setLocalidades(int f, int c, String nom, String tel, int edd){
-		localidades[f][c] = new Espectador(nom, tel, edd);
+		localidades[f][c] = new Espectador(nom, tel, edd, precio);
 	}
 	
 	public void setPrecio(Espectador e) {

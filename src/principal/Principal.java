@@ -23,9 +23,7 @@ public class Principal {
 		char opc;
 		int fil = 0;
 		int col = 0;
-		
-		
-		
+				
 		do {
 			opc = mostrarMenu();
 			
@@ -101,6 +99,7 @@ public class Principal {
 					col--;
 					System.out.println(teatro.consultarLocalidad(fil, col));
 					break;
+					
 				case '7':
 					// Se ha optado por ir almacenando los precios en una variable 
 					// de cada Espectador según se venden o anulan, y recalcularlo 
@@ -114,6 +113,7 @@ public class Principal {
 					}
 					System.out.println("La reacudación en este momento es de: " + ventaEntradas);
 					break;
+					
 				case '8':
 					System.out.println("Hasta pronto");
 					System.exit(1);
@@ -121,6 +121,7 @@ public class Principal {
 					System.out.println("Opcion no válida.");
 					break;
 			}
+			
 		} while (opc!='8');
 		lector.close();
 	}

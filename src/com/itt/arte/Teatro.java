@@ -85,7 +85,7 @@ public class Teatro extends Local implements Sala{
 			preciodto = this.precio * (1 - 0.66);
 		} 
 	    // recaudacion += preciodto;
-	    return "Se ha vendido la localidad "+ fila + "." + butaca + 
+	    return "Se ha vendido la localidad "+ (fila+1) + "." + (butaca+1) + 
 				" a " + e.getNombre() + " por " + preciodto + " Euros";
 	}
 	public String cancelarLocalidad(int fila, int butaca) {
